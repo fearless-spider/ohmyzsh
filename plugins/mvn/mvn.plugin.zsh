@@ -62,7 +62,7 @@ alias mvncp='mvn clean package'
 alias mvnct='mvn clean test'
 alias mvncv='mvn clean verify'
 alias mvncvst='mvn clean verify -DskipTests'
-alias mvnd='mvn deploy'
+alias mvndp='mvn deploy'
 alias mvndocs='mvn dependency:resolve -Dclassifier=javadoc'
 alias mvndt='mvn dependency:tree'
 alias mvne='mvn eclipse:eclipse'
@@ -196,7 +196,7 @@ function listMavenCompletions {
     # spring-boot
     spring-boot:run spring-boot:repackage
     # quarkus
-    quarkus:dev quarkus:list-extensions quarkus:add-extension quarkus:add-extensions quarkus:generate-config quarkus:help
+    quarkus:dev quarkus:list-extensions quarkus:add-extension quarkus:add-extensions quarkus:remove-extension quarkus:remove-extensions quarkus:generate-config quarkus:help
     # exec
     exec:exec exec:java
     # versions
@@ -287,7 +287,7 @@ function listMavenCompletions {
     vaadin:prepare-frontend vaadin:build-frontend vaadin:clean-frontend vaadin:dance
 
     # options
-    "-Dmaven.test.skip=true" -DskipTests -DskipITs -Dmaven.surefire.debug -DenableCiProfile "-Dpmd.skip=true" "-Dcheckstyle.skip=true" "-Dtycho.mode=maven" "-Dmaven.test.failure.ignore=true" "-DgroupId=" "-DartifactId=" "-Dversion=" "-Dpackaging=jar" "-Dfile="
+    "-Dmaven.test.skip=true" -DskipTests -DskipITs -Dmaven.surefire.debug -DenableCiProfile "-Dpmd.skip=true" "-Dcheckstyle.skip=true" "-Dtycho.mode=maven" "-Dmaven.test.failure.ignore=true" "-DgroupId=" "-DartifactId=" "-Dversion=" "-Dpackaging=jar" "-Dfile=" "-Dextensions="
 
     # arguments
     -am --also-make

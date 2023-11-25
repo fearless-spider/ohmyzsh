@@ -68,19 +68,20 @@ function per-directory-history-toggle-history() {
   if [[ $_per_directory_history_is_global == true ]]; then
     _per-directory-history-set-directory-history
     _per_directory_history_is_global=false
-    print -n "\nusing local history"
+    zle -I
+    echo "using local history"
   else
     _per-directory-history-set-global-history
     _per_directory_history_is_global=true
-    print -n "\nusing global history"
+    zle -I
+    echo "using global history"
   fi
-  zle .push-line
-  zle .accept-line
 }
 
 autoload per-directory-history-toggle-history
 zle -N per-directory-history-toggle-history
 bindkey $PER_DIRECTORY_HISTORY_TOGGLE per-directory-history-toggle-history
+bindkey -M vicmd $PER_DIRECTORY_HISTORY_TOGGLE per-directory-history-toggle-history
 
 #-------------------------------------------------------------------------------
 # implementation details
